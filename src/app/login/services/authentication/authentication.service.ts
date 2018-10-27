@@ -1,28 +1,39 @@
+import { ServiceResponse } from './../../../common/services/service.response';
 import { environment } from './../../../../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Injectable()
 export class AuthenticationService {
-    constructor(private http: HttpClient) { }
+    private headers:HttpHeaders;
+    private URL = 'user/authenticate/';
+    constructor(private http: HttpClient) { 
+        this.headers = new HttpHeaders();
+        this.headers = this.headers.append('Accept', 'application/json');
+        this.headers = this.headers.append('Content-Type', 'application/json');
+    }
 
-    login(username: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username: username, password: password })
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
-
-                return user;
-            }));
+    login(mobileNum: string, password: string):Observable<ServiceResponse> {
+        let user = {
+            user: {
+                mobileNum: mobileNum,
+                password: password
+            }
+        };
+        let headers : HttpHeaders
+        return this.http.post<ServiceResponse>(`${environment.baseURL}/${this.URL}`, 
+        user, {headers : this.headers, responseType : "json"});
     }
 
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+    }
+
+    handleError() {
+        console.error('err');
     }
 }

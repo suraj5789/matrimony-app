@@ -9,20 +9,23 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui';
 import { MatrimonyModule } from './matrimony';
 import { AppCommonModule } from './common';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    NgbModule.forRoot(),
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     UiModule,
     MatrimonyModule,
     AppCommonModule,
-    LoginModule
+    LoginModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

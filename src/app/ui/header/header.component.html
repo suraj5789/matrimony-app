@@ -1,17 +1,36 @@
-<nav class="navbar navbar-dark bg-primary mb-5">
-  <a class="navbar-brand" href="/">Gupta Samaaj</a>
-  <div class="navbar-expand mr-auto">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home</a>
-      <a class="nav-item nav-link" routerLink="/matrimony">Matrimony</a>
-      <a class="nav-item nav-link" href="#">Contact</a>
-    </div>
-  </div>
-  <div class="navbar-expand ml-auto navbar-nav">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/login">
-        <i class="fa fa-user"></i> Login
-      </a>
-    </div>
-  </div>
-</nav>
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Gupta Samaaj</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavBar" aria-controls="collapsingNavBar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsingNavBar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/matrimony">Matrimony <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about-us">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+          </li>          
+        </ul>
+        <form class="form-inline my-2 my-md-0">
+          <div *ngIf="!user" class="navbar-nav login-link">
+            <a class="nav-item nav-link" routerLink="/login">
+              <i class="fa fa-user"></i> Login
+            </a>
+          </div>
+          <div class="userProfileContainer">            
+          <ul *ngIf="user"><li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi {{user.firstName}} {{user.lastName}}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown03">
+              <a class="dropdown-item" routerLink="/user/create-profile">Create Profilie</a>
+              <a class="dropdown-item" routerLink="/user/update-password">Update Password</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+          </li></ul></div>
+        </form>
+      </div>
+    </nav>

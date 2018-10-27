@@ -1,0 +1,12 @@
+.userProfileContainer a.nav-link {
+    color: rgba(255, 255, 255, 0.5);
+}
+.userProfileContainer a.nav-link:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+.userProfileContainer li {
+    list-style: none;
+}
+.userProfileContainer a, .login-link a {
+    cursor: pointer;
+}

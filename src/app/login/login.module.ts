@@ -1,4 +1,5 @@
-import { fakeBackendProvider, ErrorInterceptor, JwtInterceptor } from './../helpers';
+import { UserService } from './services/user/user.service';
+//import { fakeBackendProvider, ErrorInterceptor, JwtInterceptor } from './../helpers';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RegistrationService } from './services/registration/registration.service';
@@ -27,11 +28,12 @@ import { RegisterComponent } from './register/register.component';
         AlertService,
         AuthenticationService,
         RegistrationService,
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        UserService
+       // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        //{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
         // provider used to create fake backend
-        fakeBackendProvider
+        
     ],
 })
 export class LoginModule { }
