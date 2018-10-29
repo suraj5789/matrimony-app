@@ -6,14 +6,14 @@
 
       <div class="collapse navbar-collapse" id="collapsingNavBar">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/matrimony">Matrimony <span class="sr-only">(current)</span></a>
+          <li class="nav-item" [class.active]="links['matrimony']">
+            <a class="nav-link" routerLink="/matrimony" (click)="linkClicked('matrimony')">Matrimony <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about-us">About Us</a>
+          <li class="nav-item" [class.active]="links['about-us']">
+            <a class="nav-link" routerLink="/about-us" (click)="linkClicked('aboutus')">About Us</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+          <li class="nav-item" [class.active]="links['contact-us']">
+            <a class="nav-link" routerLink="/contact-us" (click)="linkClicked('contactus')">Contact Us</a>
           </li>          
         </ul>
         <form class="form-inline my-2 my-md-0">
