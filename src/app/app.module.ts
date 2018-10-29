@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ContactusComponent } from './contactus/contactus.component';
     MatrimonyModule,
     AppCommonModule,
     LoginModule,
+    UserModule,
     BrowserAnimationsModule
   ],
   providers: [],
