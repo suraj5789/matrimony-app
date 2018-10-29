@@ -51,9 +51,12 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.loginFormCtrls.mobileNum.value, this.loginFormCtrls.password.value)
             .subscribe(
-                (data:ServiceResponse) => {
-                    this.userService.setUser(<User>data.result.user);
-                    this.router.navigate([this.returnUrl]);
+                (result:ServiceResponse) => {
+                    if(result.statusCode === 200 )
+                    {
+                        this.userService.setUser(<User>result.result.user);
+                        this.router.navigate([this.returnUrl]);
+                    }
                 },
                 error => {
                     this.alertService.error(error.error.message || 'There is some issue with Server. Please try again letter.');

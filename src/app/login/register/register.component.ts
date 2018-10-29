@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { ServiceResponse } from '../../common/services/service.response';
 
 
 @Component({templateUrl: 'register.component.html'})
@@ -22,13 +23,13 @@ export class RegisterComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            username: ['', Validators.required],
+            mobileNum: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get registerFormCtrls() { return this.registerForm.controls; }
 
     onSubmit() {
         this.submitted = true;
@@ -40,14 +41,16 @@ export class RegisterComponent implements OnInit {
 
         this.loading = true;
         this.userService.register(this.registerForm.value)
-            .pipe(first())
             .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
+                (result:ServiceResponse) => {
+                    if(result.statusCode === 200 )
+                    {
+                        this.alertService.success('Registration successful', true);
+                        this.router.navigate(['/login']);
+                    }
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.alertService.error(error.error.message || 'There is some issue with Server. Please try again later.');
                     this.loading = false;
                 });
     }

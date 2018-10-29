@@ -1,30 +1,25 @@
+import { ServiceResponse } from './../../../common/services/service.response';
 import { environment } from './../../../../environments/environment';
 import { User } from './../models/user';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
 export class RegistrationService {
-    constructor(private http: HttpClient) { }
-
-    getAll() {
-        return this.http.get<User[]>(`${environment.baseURL}/users`);
+    private headers:HttpHeaders;
+    private URL = 'user/register/';
+    constructor(private http: HttpClient) { 
+        this.headers = new HttpHeaders();
+        this.headers = this.headers.append('Accept', 'application/json');
+        this.headers = this.headers.append('Content-Type', 'application/json');
     }
 
-    getById(id: number) {
-        return this.http.get(`${environment.baseURL}/users/` + id);
-    }
-
-    register(user: User) {
-        return this.http.post(`${environment.baseURL}/users/register`, user);
-    }
-
-    update(user: User) {
-        return this.http.put(`${environment.baseURL}/users/` + user.id, user);
-    }
-
-    delete(id: number) {
-        return this.http.delete(`${environment.baseURL}/users/` + id);
+    register(_user: User) {
+        let user = {
+            user : _user
+        };
+        return this.http.post<ServiceResponse>(`${environment.baseURL}/${this.URL}`, 
+        user, {headers : this.headers, responseType : "json"});
     }
 }
