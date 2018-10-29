@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.alertService.error(error.error.message || 'There is some issue with Server. Please try again letter.');
                     this.loading = false;
                 });
     }

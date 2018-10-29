@@ -34,7 +34,7 @@ private links:Object = {
   logout() {
     this.user = null;
     this.userService.setUser(this.user);
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   linkClicked(_currentLink) {
