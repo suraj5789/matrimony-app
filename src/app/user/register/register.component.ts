@@ -1,10 +1,10 @@
-import { RegistrationService } from '../services/registration/registration.service';
 import { AlertService } from './../../common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { ServiceResponse } from '../../common/services/service.response';
+import { RegistrationService } from './service/registration.service';
 
 
 @Component({templateUrl: 'register.component.html'})

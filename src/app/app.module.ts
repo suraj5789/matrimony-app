@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { LoginModule } from './login';
 import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui';
@@ -13,7 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
-import { UserModule } from './user/user.module';
+import { UserModule } from './user';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { UserModule } from './user/user.module';
     UiModule,
     MatrimonyModule,
     AppCommonModule,
-    LoginModule,
     UserModule,
     BrowserAnimationsModule
   ],

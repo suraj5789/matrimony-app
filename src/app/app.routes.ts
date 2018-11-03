@@ -1,7 +1,6 @@
-import { RegisterComponent, LoginComponent } from './login';
+import { RegisterComponent, LoginComponent, AuthGuard } from './user';
 import { MatrimonyComponent } from './matrimony';
 import { Routes } from '@angular/router';
-import { AuthGuard } from './login/guards/auth.guard';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ProfileComponent } from './user/profile/profile.component';

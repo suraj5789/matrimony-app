@@ -1,12 +1,12 @@
-import { User } from './services/models/user';
-import { AlertService } from './../common/services/alert.service';
-import { AuthenticationService } from './services/authentication/authentication.service';
+import { ServiceResponse } from './../../common/services/service.response';
+import { User } from '../services/models/user';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { ServiceResponse } from '../common/services/service.response';
-import { UserService } from './services/user/user.service';
+import { AlertService } from '../../common/services/alert.service';
+import { AuthenticationService } from '../login/service/authentication.service';
+import { UserService } from '../services/user.service';
 
 
 @Component({templateUrl: 'login.component.html'})

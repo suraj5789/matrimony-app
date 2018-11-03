@@ -1,8 +1,8 @@
 import { ServiceResponse } from './../../../common/services/service.response';
 import { environment } from './../../../../environments/environment';
-import { User } from './../models/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../../services/models/user';
 
 
 @Injectable()

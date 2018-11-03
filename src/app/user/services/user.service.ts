@@ -1,8 +1,8 @@
 import { BehaviorSubject , Observable } from 'rxjs';
-import { User } from './../models/user';
 import { Injectable } from '@angular/core';
-import AppConstants from '../../../helpers/app.constants';
-import Base64TransCoder from '../../../helpers/base64.transcoder';
+import AppConstants from '../../helpers/app.constants';
+import Base64TransCoder from '../../helpers/base64.transcoder';
+import { User } from './models/user';
 
 @Injectable({
   providedIn: 'root'
