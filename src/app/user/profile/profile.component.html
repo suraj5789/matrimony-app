@@ -1,3 +1,319 @@
-<p>
-  profile works!
-</p>
+<h2>Create Profile</h2>
+<form class="container" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active" 
+        data-toggle="collapse" href="#personalInfoContainer" role="button" aria-expanded="false" aria-controls="personalInfo">
+            Personal Details
+        </a>
+        <div class="collapse profile-container" id="personalInfoContainer">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.firstName.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.lastName.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.lastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="dob">Date Of Birth</label>
+                    <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.dob.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.dob.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.dob.errors.required">Mobile number is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="height">Height</label>
+                    <select class="custom-select height-select mb-2 mr-sm-2 mb-sm-0 form-control" id="heightFeet" formControlName="heightFeet" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.heightFeet.errors }">
+                        <option selected>Choose Feet</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="5">6</option>
+                        <option value="5">7</option>                          
+                    </select>
+                    <select class="custom-select height-select mb-2 mr-sm-2 mb-sm-0 form-control" id="heightInch" formControlName="heightInch" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.heightInch.errors }">
+                        <option selected>Choose Inch</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>                        
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>                        
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.height.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.height.errors.required">height is required</div>
+                        <div *ngIf="profileFormCtrls.height.errors.minlength">height must be at least 6 characters</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="weight">Weight</label>
+                    <input type="text" formControlName="weight" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.weight.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.weight.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.weight.errors.required">Weight is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="complexion">Complexion</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="heightFeet" formControlName="complexion" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.complexion.errors }">
+                        <option selected>Choose Complexion</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Weatish">Weatish</option>
+                        <option value="Dark">Dark</option>                 
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.complexion.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.complexion.errors.required">Complexion is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="gotra">Gotra</label>
+                    <input type="text" formControlName="gotra" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.gotra.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.gotra.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.gotra.errors.required">Gotra is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="rashi">Janma-Rashi</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="rashi" formControlName="rashi" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.rashi.errors }">
+                        <option selected>Choose Janma-Rashi</option>
+                        <option value="Aries">Aries</option>
+                        <option value="Capricorn">Capricorn</option>
+                        <option value="Leo">Leo</option>
+                        <option value="Sagitarius">Sagitarius</option>
+                        <option value="Scorpio">Scorpio</option>
+                        <option value="Virgo">Virgo</option>
+                        <option value="Gemini">Gemini</option>
+                        <option value="Taurus">Taurus</option>
+                        <option value="Cancer">Cancer</option>
+                        <option value="Pisces">Pisces</option>
+                        <option value="Libra">Libra</option>
+                        <option value="Aquarius">Aquarius</option>        
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.rashi.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.rashi.errors.required">Rashi is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="list-group-item list-group-item-action active" 
+        data-toggle="collapse" href="#educationJobInfoContainer" role="button" aria-expanded="false" aria-controls="educationJobInfo">
+            Educational/Job Details
+        </a>
+        <div class="collapse profile-container" id="educationJobInfoContainer">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="education">Education</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="education" formControlName="education" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.education.errors }">
+                        <option selected>Choose Education</option>
+                        <option value="master">Master Degree</option>
+                        <option value="degree">Degree</option>
+                        <option value="12th">12th Std Passed</option>
+                        <option value="10th">10th Std Passed</option>
+                        <option value="dr">Doctor (BMS/MBBS/MD)</option>                          
+                        <option value="er">Engineer(IT/CS/MAC/ES/ETCT/Civil/etc.)</option>                          
+                        <option value="others">Others</option>                          
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.education.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.education.errors.required">Education is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="occupation">Occupation</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="occupation" formControlName="occupation" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.occupation.errors }">
+                        <option selected>Choose Occupation</option>
+                        <option value="private">Private Job</option>
+                        <option value="gov">Gov. Job</option>
+                        <option value="semi-gov">Semi Gov. Job</option>
+                        <option value="ngo">NGO</option>
+                        <option value="business">Business</option>                          
+                        <option value="study">Study</option>                          
+                        <option value="others">Others</option>                          
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.occupation.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.occupation.errors.required">Occupation is required</div>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="income">Income</label>
+                        <input type="text" formControlName="income" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.income.errors }" />
+                        <div *ngIf="submitted && profileFormCtrls.income.errors" class="invalid-feedback">
+                            <div *ngIf="profileFormCtrls.income.errors.required">Income is required</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="companyName">Company/Firm Name</label>
+                        <input type="text" formControlName="companyName" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.companyName.errors }" />
+                        <div *ngIf="submitted && profileFormCtrls.companyName.errors" class="invalid-feedback">
+                            <div *ngIf="profileFormCtrls.companyName.errors.required">Company/Firm Name is required</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <a href="#" class="list-group-item list-group-item-action active" 
+        data-toggle="collapse" href="#familyInfoContainer" role="button" aria-expanded="false" aria-controls="familyInfo">
+            Family Details
+        </a>
+        <div class="collapse profile-container" id="familyInfoContainer">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="fatherName">Father's Name</label>
+                    <input type="text" formControlName="fatherName" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.fatherName.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.fatherName.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.fatherName.errors.required">Father's name is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="motherName">Mother's Name</label>
+                    <input type="text" formControlName="motherName" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.motherName.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.motherName.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.motherName.errors.required">Mother's name is required</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">Add Siblings</button>
+            </div>
+        </div>
+        <a href="#" class="list-group-item list-group-item-action active" 
+        data-toggle="collapse" href="#socialInfoContainer" role="button" aria-expanded="false" aria-controls="socialInfo">
+            Social Details
+        </a>
+        <div class="collapse profile-container" id="socialInfoContainer">
+            <h3>Add atleast one social reference, to make your profile strong.</h3>
+            <p>Tip : You can add your relatives' name in social reference section.</p>
+            <button [disabled]="loading" class="btn btn-primary">Add Social Reference.</button>
+        </div>
+        <a href="#" class="list-group-item list-group-item-action active" 
+        data-toggle="collapse" href="#photoInfoContainer" role="button" aria-expanded="false" aria-controls="photoInfo">
+            Add Photo
+        </a>
+        <div class="collapse profile-container" id="photoInfoContainer">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="list-group-item list-group-item-action active" 
+        data-toggle="collapse" href="#profileMatchInfoContainer" role="button" aria-expanded="false" aria-controls="profileMatchInfo">
+            Profile Matching Criteria
+        </a>
+        <div class="collapse profile-container" id="profileMatchInfoContainer">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="education">By Education</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="education" formControlName="education" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.education.errors }">
+                        <option selected>Choose Education</option>
+                        <option value="master">Master Degree</option>
+                        <option value="degree">Degree</option>
+                        <option value="12th">12th Std Passed</option>
+                        <option value="10th">10th Std Passed</option>
+                        <option value="dr">Doctor (BMS/MBBS/MD)</option>                          
+                        <option value="er">Engineer(IT/CS/MAC/ES/ETCT/Civil/etc.)</option>                          
+                        <option value="others">Others</option>                          
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.education.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.education.errors.required">Education is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="matchByIncome">By Occupation</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="matchByIncome" formControlName="matchByIncome" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.matchByIncome.errors }">
+                        <option selected>Choose Occupation</option>
+                        <option value="private">Private Job</option>
+                        <option value="gov">Gov. Job</option>
+                        <option value="semi-gov">Semi Gov. Job</option>
+                        <option value="ngo">NGO</option>
+                        <option value="business">Business</option>                          
+                        <option value="study">Study</option>                          
+                        <option value="others">Others</option>                          
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.matchByIncome.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.matchByIncome.errors.required">Occupation is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="matchByGotra">By Gotra</label>
+                    <input type="text" formControlName="matchByGotra" class="form-control" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.matchByGotra.errors }" />
+                    <div *ngIf="submitted && profileFormCtrls.matchByGotra.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.matchByGotra.errors.required">Gotra is required</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="matchByRashi">By Janma-Rashi</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="matchByRashi" formControlName="matchByRashi" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.matchByRashi.errors }">
+                        <option selected>Choose Janma-Rashi</option>
+                        <option value="Aries">Aries</option>
+                        <option value="Capricorn">Capricorn</option>
+                        <option value="Leo">Leo</option>
+                        <option value="Sagitarius">Sagitarius</option>
+                        <option value="Scorpio">Scorpio</option>
+                        <option value="Virgo">Virgo</option>
+                        <option value="Gemini">Gemini</option>
+                        <option value="Taurus">Taurus</option>
+                        <option value="Cancer">Cancer</option>
+                        <option value="Pisces">Pisces</option>
+                        <option value="Libra">Libra</option>
+                        <option value="Aquarius">Aquarius</option>        
+                    </select>
+                    <div *ngIf="submitted && profileFormCtrls.matchByRashi.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.matchByRashi.errors.required">Rashi is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label for="matchByIncome">By Income</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 form-control" id="matchByIncome" formControlName="matchByIncome" [ngClass]="{ 'is-invalid': submitted && profileFormCtrls.matchByIncome.errors }">
+                    <option selected>Choose Income</option>
+                    <option value="0-20000">Rs.0-10000</option>
+                    <option value="21000-40000">11000-20000</option>
+                    <option value="41000-60000">41000-60000</option>
+                    <option value="61000-80000">61000-80000</option>
+                    <option value="100000+">100000 + more</option>               
+                </select>
+                    <div *ngIf="submitted && profileFormCtrls.matchByIncome.errors" class="invalid-feedback">
+                        <div *ngIf="profileFormCtrls.matchByIncome.errors.required">Income is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    
+
+
+
+
+
+    <div class="row justify-content-center">
+    <div class="col-sm-6 form-group">
+        <button [disabled]="loading" class="btn btn-primary">Save Profile</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+    </div>
+    </div>
+</form>
