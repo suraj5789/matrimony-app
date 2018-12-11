@@ -3,7 +3,7 @@
     
   <div class="row justify-content-center">
     <div class="col-sm-6 form-group">
-        <label for="mobileNum">Mobile Number</label>
+        <label for="mobileNum">Your Mobile Number</label>
         <input type="number" maxlength="10" formControlName="mobileNum" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormCtrls.mobileNum.errors }" />
         <div *ngIf="submitted && loginFormCtrls.mobileNum.errors" class="invalid-feedback">
             <div *ngIf="loginFormCtrls.mobileNum.errors.required">Mobile Number is required</div>

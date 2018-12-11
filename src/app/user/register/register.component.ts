@@ -7,7 +7,7 @@ import { ServiceResponse } from '../../common/services/service.response';
 import { RegistrationService } from './service/registration.service';
 
 
-@Component({templateUrl: 'register.component.html'})
+@Component({templateUrl: 'register.component.html', styleUrls: ['./register.component.scss']})
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;

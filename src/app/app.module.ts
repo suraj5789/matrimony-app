@@ -9,7 +9,6 @@ import { UiModule } from './ui';
 import { MatrimonyModule } from './matrimony';
 import { AppCommonModule } from './common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { UserModule } from './user';
@@ -21,7 +20,6 @@ import { UserModule } from './user';
     ContactusComponent,
   ],
   imports: [
-    NgbModule.forRoot(),
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),

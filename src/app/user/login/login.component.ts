@@ -9,7 +9,7 @@ import { AuthenticationService } from '../login/service/authentication.service';
 import { UserService } from '../services/user.service';
 
 
-@Component({templateUrl: 'login.component.html'})
+@Component({templateUrl: 'login.component.html', styleUrls: ['./login.component.scss']})
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
